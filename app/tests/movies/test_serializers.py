@@ -5,7 +5,7 @@ def test_valid_movie_serializer():
     valid_serializer_data = {
         "title": "Raising Arizona",
         "genre": "comedy",
-        "year": "1987"
+        "year": "1987",
     }
     serializer = MovieSerializer(data=valid_serializer_data)
     assert serializer.is_valid()
@@ -15,7 +15,7 @@ def test_valid_movie_serializer():
 
 
 def test_invalid_movie_serializer():
-    invalid_serializer_data ={
+    invalid_serializer_data = {
         "title": "Raising Arizona",
         "genre": "comedy",
     }
@@ -24,4 +24,3 @@ def test_invalid_movie_serializer():
     assert serializer.validated_data == {}
     assert serializer.data == invalid_serializer_data
     assert serializer.errors == {"year": ["This field is required."]}
-
